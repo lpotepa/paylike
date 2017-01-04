@@ -2,6 +2,9 @@
 
 The Paylike gem provides integration access to the Paylike Gateway.
 
+{https://paylike.io}[https://paylike.io]
+{API Docs}[https://github.com/paylike/api-docs]
+
 == Dependencies
 
 * json
