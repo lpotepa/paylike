@@ -1,0 +1,78 @@
+= Paylike Ruby Client Library
+
+The Paylike gem provides integration access to the Paylike Gateway.
+
+== Dependencies
+
+* json
+* unirest
+
+== Installation
+
+  gem install paylike
+
+Or add to your Gemfile:
+
+  gem 'paylike'
+
+== Quick Start Example
+
+  require "rubygems"
+  require "paylike"
+
+  # Configuration
+
+  Paylike::Configuration.public_key = "your_public_key"
+  Paylike::Configuration.private_key = "your_private_key"
+
+  # Methods
+
+
+  #
+  # Fetch a merchant
+  #
+
+  Paylike::Api.merchant("your_merchant_id")
+
+
+  #
+  # Fetch a transaction
+  #
+
+  Paylike::Api.transaction("transaction_id")
+
+
+  #
+  # Capture a transaction
+  #
+
+  Paylike::Api.capture("transaction_id", "amount")
+
+
+  #
+  # Void a transaction
+  #
+
+  Paylike::Api.void("transaction_id", "amount")
+
+
+  #
+  # Refund a transaction
+  #
+
+  Paylike::Api.refund("transaction_id", "amount")
+
+
+  #
+  # Generate Payment Link
+  #
+
+  Paylike::Api.generate_payment_link("500", "GBP", "ref_no6712hjuy", "You pay for..", "https://payments.myapp.com/confirm")
+
+  # Will generate:
+  # https://pos.paylike.io/?key=d4e4ba5b-8df7-4b5e-a487-addd95dd4f03&amount=500&currency=GBP&reference=refno_6712hjuy&text=You%20pay%20for%20..&redirect=https://payments.myapp.com/confirm&locale=en_US
+
+
+== License
+
+MIT
