@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'paylike'
+puts Paylike.quote(ARGV[0])
