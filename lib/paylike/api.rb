@@ -25,7 +25,7 @@ module Paylike
 
 		def self.transaction(transaction_id)
 			req = Request._http(Endpoints.transaction(transaction_id))
-			TransactionResponse.new(req.body) if req.code == 200 || 201
+			Response.new(req.body) if req.code == 200 || 201
 		end
 
 		#
@@ -35,7 +35,7 @@ module Paylike
 		def self.capture(transaction_id, amount)
 			data = { :amount => amount }
 			req = Request._http_post(Endpoints.capture(transaction_id), data)
-			TransactionResponse.new(req.body) if req.code == 200 || 201
+			Response.new(req.body) if req.code == 200 || 201
 			#req.body if req.code == 200
 		end
 
@@ -46,7 +46,7 @@ module Paylike
 		def self.void(transaction_id, amount)
 			data = { :amount => amount }
 			req = Request._http_post(Endpoints.void(transaction_id), data)
-			TransactionResponse.new(req.body) if req.code == 200 || 201
+			Response.new(req.body) if req.code == 200 || 201
 		end
 
 		#
@@ -56,7 +56,7 @@ module Paylike
 		def self.refund(transaction_id, amount, descriptor = nil)
 			data = descriptor ? { :amount => amount, :descriptor => descriptor } : { :amount => amount }
 			req = Request._http_post(Endpoints.refund(transaction_id), data)
-			TransactionResponse.new(req.body) if req.code == 200 || 201
+			Response.new(req.body) if req.code == 200 || 201
 		end
 
 		#
