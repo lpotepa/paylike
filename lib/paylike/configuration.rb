@@ -18,7 +18,7 @@ module Paylike
 
 
 		def self.test_key
-			raise "Configuration error: Private key is missing." unless private_key
+			puts "Configuration error: Private key is missing." unless private_key
 			puts private_key
 		end
 	end
